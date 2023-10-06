@@ -17,7 +17,7 @@ router.get(
 router.get("/caretaker-profile/:_id", AuthRouter.CareTakerProfile);
 router.get("/petsitter-profile/:_id", AuthRouter.PetSitterProfile);
 router.patch("/caretaker-profile/:_id", AuthRouter.UpdateCareTakerProfile);
-router.patch("c/:_id", AuthRouter.UpdatePetSitterProfile);
+router.patch("/petsitter-profile/:_id", AuthRouter.UpdatePetSitterProfile);
 router.patch(
   "/petsitter-profile/password/:_id",
   AuthRouter.UpdatePetSitterPassword

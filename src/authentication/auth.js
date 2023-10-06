@@ -61,7 +61,7 @@ class Auth {
           .status(200)
           .json({ message: "Signin_Sucessfully", data: { user } });
       } else {
-        return res.status(400).json({ message: "Wrong Credentials" });
+        return res.status(409).json({ message: "Wrong Credentials" });
       }
     } catch (error) {
       console.log(error);
