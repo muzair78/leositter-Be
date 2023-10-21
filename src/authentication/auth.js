@@ -64,7 +64,7 @@ class Auth {
         return res.status(409).json({ message: "Wrong Credentials" });
       }
     } catch (error) {
-      console.log(error);
+      res.status(500).message({ message: "server error" });
     }
   };
   jobForm = async (req, res) => {
