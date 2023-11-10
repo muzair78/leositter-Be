@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
-//dfdfdf
 
 mongoose
-  .connect("mongodb://localhost:27017/LeoSitters")
-  .then(() => {
-    console.log("Database working successfully");
+  .connect(process.env.DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
-  .catch((Error) => {
-    console.log(Error);
+  .then(() => {
+    console.log("Database connected successfully");
+  })
+  .catch((error) => {
+    console.error("Database connection error:", error.message);
   });

@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
+require("dotenv").config({ path: "src/.env" });
 const PORT = process.env.PORT || 4000;
 const apiRoutes = require("./src/routes/route");
 const cors = require("cors");
 
-require("../server/src/DB/dataBase");
-require("dotenv").config({ path: "src/.env" });
+require("./src/DB/dataBase");
 
 app.use(express.json());
 app.use(cors());
