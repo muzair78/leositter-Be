@@ -26,4 +26,7 @@ router.patch(
   "/caretaker-profile/password/:_id",
   AuthRouter.UpdateCareTakerPassword
 );
+router.post("/send-messages/:sender_ID/:reciever_ID", AuthRouter.SendMessage);
+router.get("/getmessage/:senderid/:_reciverid", AuthRouter.GetMessage);
+router.get("/fetchConv/:id", AuthRouter.GetConv);
 module.exports = router;
