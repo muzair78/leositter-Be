@@ -12,7 +12,10 @@ app.use(cors());
 app.use(apiRoutes);
 app.use(express.static("build"));
 app.use("/public", express.static("public"));
-
+app.get("/", (req, res) => {
+  res.send("hi there");
+  res.end();
+});
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
 });
