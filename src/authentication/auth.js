@@ -9,6 +9,7 @@ const {
 } = require("../helpers/helper");
 const { response } = require("express");
 const mongoose = require("mongoose");
+const generateToken = require("../models/model");
 
 class Auth {
   Signup = async (req, res) => {
@@ -61,9 +62,12 @@ class Auth {
       const user = await User.findOne({ email });
       const passwordMatch = await bcrypt.compare(password, user.password);
       if (passwordMatch) {
-        return res
-          .status(200)
-          .json({ message: "Signin_Sucessfully", data: { user } });
+        const token = await user.generateToken();
+        return res.status(200).json({
+          message: "Signin_Sucessfully",
+          data: { user },
+          token: token,
+        });
       } else {
         return res.status(409).json({ message: "Wrong Credentials" });
       }
