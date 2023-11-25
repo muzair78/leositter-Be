@@ -14,16 +14,14 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
   },
-  Pservice: {
-    type: String,
-  },
+
   service: {
     type: String,
   },
   password: {
     type: String,
   },
-  cpassword: {
+  profileImg: {
     type: String,
   },
   weeklyhours: {
